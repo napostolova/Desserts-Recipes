@@ -1,0 +1,8 @@
+footer {
+    bottom: 0;
+ background: rgb(240, 154, 154);
+ margin-top: 0;
+ position: absolute;
+ width: 100%;
+ text-align: center;
+}

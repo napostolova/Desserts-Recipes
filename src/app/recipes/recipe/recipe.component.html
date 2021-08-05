@@ -1,0 +1,21 @@
+<div class="container">
+
+    <div *ngIf="recipe" class="recipe">
+        <div class="recipe-name">
+            <div>{{recipe.title}}</div>
+        </div>
+        <div class="recipe-products">
+          <p>Ingredients: <span>{{recipe.products}}</span></p>
+        </div>
+        <div class="recipe-preparation">
+            <p>Preparation: <span>{{recipe.preparation}}</span></p>
+          </div>
+          <div class="recipe-image">
+             <div>{{recipe.imageUrl}}</div>
+          </div>
+          <div>
+              <button>Edit</button>
+          </div>
+
+    </div>
+</div>

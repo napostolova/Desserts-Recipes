@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserService } from './user/user.service';
 
 
 @Component({
@@ -7,5 +8,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  get isAuthenticated(): boolean {
+    return this.userService.user === undefined;
+  }
+
+  constructor (
+    private userService: UserService
+  ) {
+   
+  }
+
   title = 'recipes';
 }

@@ -1,2 +1,2 @@
-export * from '../interfaces/user';
-export * from '../interfaces/recipe';
+export * from './user';
+export * from './recipe';

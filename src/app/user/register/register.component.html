@@ -4,10 +4,10 @@
 
     <p class="">
         <label for="username"><span><i class="username"></i></span></label>
-        <input class="input-error" type="text" name="username" id="username" placeholder="Mary"   formControlName="username">
+        <input class="input-error" type="text" name="username" id="username" placeholder="Marie"   formControlName="username">
       </p>
       <ng-container *ngIf="form.get('username')?.touched">
-        <p *ngif="form.get('username').errors.required" class="error">
+        <p *ngif="form.get('username').errors?.required" class="error">
           Username is required!
         </p>
         <p *ngIf="form.get('username')?.errors?.minlength" class="error">
@@ -18,16 +18,16 @@
 
       <p class="">
         <label for="email"><span><i class="email"></i></span></label>
-        <input type="email" name="email" id="email" placeholder="mary.rose@gmail.com" formControlName="email">
+        <input type="email" name="email" id="email" placeholder="marie.rose@gmail.com" formControlName="email">
       </p>
 
       <ng-container *ngIf="form.get('email')?.touched">
         <p *ngIf="form.get('email')?.errors?.required" class="error">
           Email is required!
         </p>
-        <!-- <p *ngIf="form.get('email')?.errors?.invalidEmail" class="error">
+        <p *ngIf="form.get('email')?.errors?.invalidEmail" class="error">
           Email is invalid!
-        </p> -->
+        </p>
       </ng-container>
 
       <p class="">
@@ -52,6 +52,10 @@
         <p *ngIf="form.get('rePassword')?.errors?.required" class="error">
           Repeat password is required!
         </p>
+        <p *ngIf="form.get('rePassword')?.errors?.invalid" class="error">
+          Passwords don't match!
+        </p>
+        
       </ng-container>
 
       <button>Create Account</button>

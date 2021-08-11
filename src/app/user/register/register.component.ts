@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import {FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {Router } from '@angular/router';
+import { Subject } from 'rxjs';
+import { emailValidator, sameValue } from 'src/app/shared/validators';
 import { UserService} from '../user.service';
 
 
@@ -9,9 +11,11 @@ import { UserService} from '../user.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnDestroy {
 
   form: FormGroup;
+
+  removeSubscription = new Subject();
 
   constructor(
     private fb: FormBuilder,
@@ -20,9 +24,11 @@ export class RegisterComponent {
   ) { 
     this.form = this.fb.group({
       username: ['', [Validators.required, Validators.minLength(5)]],
-      email: ['', [Validators.required]],
+      email: ['', [Validators.required, emailValidator]],
       password: ['', [Validators.required, Validators.minLength(5)]],
-      rePassword: ['', [Validators.required]]
+      rePassword: ['', [Validators.required, sameValue (
+        () => this.form?.get('password'), this.removeSubscription
+      )]]
     });
   }
 
@@ -33,7 +39,7 @@ export class RegisterComponent {
     }
     this.userService.register(this.form.value).subscribe({
       next: () => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/recipes']);
       },
       error: (err) => {
         console.log(err);
@@ -41,6 +47,9 @@ export class RegisterComponent {
     });
   }
 
- 
+ ngOnDestroy(): void {
+   this.removeSubscription.next();
+   this.removeSubscription.complete();
+ }
 
 }

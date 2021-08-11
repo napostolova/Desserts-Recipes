@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
 import { from } from 'rxjs';
+import { emailValidator } from 'src/app/shared/validators';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +20,7 @@ export class LoginComponent  {
     private router: Router
   ) {
     this.form = fb.group ({
-      email: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required, emailValidator]],
       password: ['', [Validators.required, Validators.minLength(5)]]
     });
    }
@@ -30,7 +31,7 @@ export class LoginComponent  {
      }
      this.userService.login(this.form.value).subscribe({
        next: () => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/recipes']);
        },
        error: (err) => {
          console.log(err);

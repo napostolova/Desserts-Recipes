@@ -16,6 +16,11 @@ export class AppComponent {
   constructor (
     private userService: UserService
   ) {
+    this.userService.userProfile().subscribe({
+      error: () => {
+        this.userService.user = null;
+      }
+    })
    
   }
 

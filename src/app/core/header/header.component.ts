@@ -13,6 +13,10 @@ export class HeaderComponent {
     return this.userService.isLogged;
   }
 
+  get username(): string {
+    return this.userService.user?.username || '';
+  }
+
   constructor(
     private userService: UserService,
     private router: Router

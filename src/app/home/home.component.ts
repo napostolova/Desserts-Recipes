@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { UserService } from '../user/user.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { UserService } from '../user/user.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent  {
+export class HomeComponent  implements OnInit{
   get isLogged(): boolean {
     return this.userService.isLogged;
   }
@@ -14,6 +14,8 @@ export class HomeComponent  {
   constructor(
     private userService: UserService
   ) { }
-
-
+  
+  ngOnInit(): void {
+    
+  }
 }

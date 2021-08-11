@@ -21,4 +21,15 @@ export class RecipesService {
   createRecipe(data: any) {
     return this.http.post<IRecipe>(`${apiUrl}/recipes`, data, {withCredentials: true});
   }
+
+  getMyRecipes(userId: string) {
+    return this.http.get<IRecipe[]>(`${apiUrl}/my-recipes/${userId}/recipes`, {withCredentials: true});
+  }
+
+  likeRecipe(id: string) {
+    return this.http.get<IRecipe>(`${apiUrl}/likes/${id}`, {withCredentials: true})
+
+  }
+
+
 }

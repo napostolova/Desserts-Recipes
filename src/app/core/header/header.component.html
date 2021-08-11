@@ -3,6 +3,9 @@
     <section>
         <ul *ngIf="!isLogged">
             <li>
+                <a routerLink="/home">Home</a>
+            </li>
+            <li>
                 <a routerLink="/login">Login</a>
             </li>
             <li>
@@ -13,13 +16,13 @@
     <nav>
         <ul *ngIf="isLogged">
             <li>
-                <a routerLink="/home">Home</a>
-            </li>
-            <li>
                 <a routerLink="/recipes">Recipes</a>
             </li>
             <li>
-                <a routerLink="/recipes/create">Create Recipe</a>
+                <a routerLink="/create">Create Recipe</a>
+            </li>
+            <li>
+                <a routerLink="/my-recipes">{{username}}'s recipes</a>
             </li>
             <li (click)="logout()">Log out</li>
         </ul>

@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
-
+import { AuthGardGuard } from './guards/auth-gard.guard';
 
 
 @NgModule({
@@ -17,7 +17,8 @@ import { RouterModule } from '@angular/router';
     RouterModule,
     HttpClientModule
   ],
-  exports: [
+  providers: [AuthGardGuard ],
+    exports: [
     HeaderComponent,
     FooterComponent
   ]

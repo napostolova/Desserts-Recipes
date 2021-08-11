@@ -6,14 +6,14 @@ import { RecipeRoutingModule } from './recipes-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { RecipeComponent } from './recipe/recipe.component';
-
-
+import { MyRecipesComponent } from './my-recipes/my-recipes.component';
 
 @NgModule({
   declarations: [
     NewRecipeComponent,
     AllRecipesComponent,
-    RecipeComponent
+    RecipeComponent,
+    MyRecipesComponent
   ],
   imports: [
     CommonModule,

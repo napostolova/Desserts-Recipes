@@ -12,6 +12,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { RecipesModule } from './recipes/recipes.module';
 import { RecipesService } from './recipes.service';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,7 @@ import { RecipesService } from './recipes.service';
 
   ],
   providers: [
-    RecipesService
+    RecipesService    
   ],
   bootstrap: [AppComponent]
 })

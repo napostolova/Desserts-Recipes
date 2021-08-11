@@ -1,3 +1,4 @@
+import { trigger } from '@angular/animations';
 import { HttpClient } from '@angular/common/http';
 import {Injectable } from '@angular/core';
 import { tap} from 'rxjs/operators';
@@ -13,6 +14,9 @@ export class UserService {
 
     get isLogged(): boolean {
         return !!this.user;
+    }
+    get userId(): any {
+        return this.user?._id;
     }
 
     constructor( 
@@ -35,4 +39,14 @@ export class UserService {
             tap(() => this.user = null)
        );
     } 
+    userProfile() {
+        return this.http.get<IUser>(`${apiUrl}/users/profile`, {withCredentials: true}).pipe(
+            tap((user) => this.user = user)
+        )
+    }
+    updateProfile(data: {username: string, email: string}) {
+        return this.http.put<IUser>(`${apiUrl}/users/profile`, data, {withCredentials: true}).pipe(
+            tap((user) => this.user = user)
+        )
+    }
 }

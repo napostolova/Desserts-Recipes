@@ -1,21 +1,33 @@
 <div class="container">
-
-    <div *ngIf="recipe" class="recipe">
-        <div class="recipe-name">
-            <div>{{recipe.title}}</div>
-        </div>
-        <div class="recipe-products">
-          <p>Ingredients: <span>{{recipe.products}}</span></p>
-        </div>
-        <div class="recipe-preparation">
-            <p>Preparation: <span>{{recipe.preparation}}</span></p>
-          </div>
-          <div class="recipe-image">
-             <div>{{recipe.imageUrl}}</div>
-          </div>
-          <div>
-              <button>Edit</button>
-          </div>
-
+  <div></div>
+  <div *ngIf="recipe" class="recipe">
+    <div class="recipe-name">
+      <h2>{{recipe.title}}</h2>
     </div>
+    <div class="recipe-products">
+      <p>Ingredients: <span>{{recipe.products}}</span></p>
+    </div>
+    <div class="recipe-preparation">
+      <p>Preparation: <span>{{recipe.preparation}}</span></p>
+    </div>
+    <div class="recipe-image">
+      <div>{{recipe.imageUrl}}</div>
+    </div>
+    <div *ngIf="userId==recipe.userId">
+      <div>
+        <button>Edit</button>
+        <button>Delete</button>
+      </div>
+    </div>
+    <div *ngIf="userId!=recipe.userId">
+      <div *ngIf="!recipe.likes.includes(userId)">
+        <button (click)="likeRecipe(recipe._id)">Like</button>
+        <span>{{recipe.likes.length}} likes</span>
+      </div>
+      <div *ngIf="recipe.likes.includes(userId)">
+        <p>You have already liked this recipe</p>
+        <span>{{recipe.likes.length}} likes</span>
+      </div>
+    </div>
+  </div>
 </div>

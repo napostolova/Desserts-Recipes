@@ -1,0 +1,17 @@
+
+ <ng-container *ngIf="recipes">
+  <div *ngFor="let recipe of recipes">
+    <div class="recipe" [routerLink]="['/recipes', recipe._id]">
+      <h2>{{recipe.title}}</h2>
+        </div>
+      </div>
+</ng-container> 
+
+<ng-container *ngIf="recipes?.length==0">
+<div class="no-recipes">There is any recipes</div>
+<a routerLink="/create">Add your recipe</a>
+</ng-container> 
+<ng-container *ngIf="!recipes">
+  <div class="no-recipes">There is any recipes</div>
+  <a routerLink="/create">Add your recipe</a>
+  </ng-container> 

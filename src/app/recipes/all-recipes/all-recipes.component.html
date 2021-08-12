@@ -1,5 +1,5 @@
 <div class="container">
-<div class="recipe-title" *ngIf="recipes">
+  <div class="recipe-title" *ngIf="recipes">
     <div *ngFor="let recipe of recipes" class="recipe-container">
       <div class="recipe-name-wrapper" [routerLink]="['/recipes', recipe._id]">
         <div class="recipe-name">
@@ -8,22 +8,13 @@
           </a>
           <div class="columns">
             <div>
-                <div class="imageUrl">
-                    <p> <span>{{recipe.imageUrl}}</span></p>
-                </div>
+              <div class="imageUrl">
+                <img src={{recipe.imageUrl}}>
+              </div>
               <div class="author-name">
                 <p>Ingredients: <span>{{recipe.products}}</span></p>
               </div>
             </div>
-            <!-- <div class="details">
-              <button *ngIf="isLogged" class="details" routerLink="/{{recipe._id}}">Details</button>
-              <p>Likes: <span>{{recipe.likes.length}}</span></p>
-            </div> -->
-              <!-- <div class="likes">
-              <button *ngIf="isLogged" class="like">Like</button>
-              <p>Likes: <span>{{recipe.likes.length}}</span></p>
-            </div> -->
-
           </div>
         </div>
       </div>

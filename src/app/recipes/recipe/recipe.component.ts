@@ -36,7 +36,6 @@ export class RecipeComponent implements OnInit {
     const id = this.activatedRoute.snapshot.params.recipeId;
     console.log(id);
 
-    //this.recipesService.getRecipe(id).subscribe(recipe => this.recipe = recipe);
     this.recipesService.getRecipe(id).subscribe({
       next: (recipe) => {
         this.recipe = recipe
@@ -44,7 +43,6 @@ export class RecipeComponent implements OnInit {
       error: (err) => {
         console.log(err);
       },
-
     });
 
   }
@@ -52,7 +50,7 @@ export class RecipeComponent implements OnInit {
   likeRecipe(id: string): void {
     this.recipesService.likeRecipe(id).subscribe({
       next: () => {
-        console.log('like');        
+        console.log('like');
         this.router.navigate(['/recipes']);
       },
       error: (err) => {
@@ -60,5 +58,23 @@ export class RecipeComponent implements OnInit {
 
       }
     })
+  }
+
+  deleteRecipe(id: string): void {
+    const confirmation = confirm('Are you sure to delete this recipe?')
+    if (confirmation) {
+     
+    this.recipesService.deleteRecipe(id).subscribe({
+      next: () => {
+        console.log('delete');
+        this.router.navigate(['/recipes']);
+      },
+      error: (err) => {
+        console.log(err);
+
+     }
+    });
+  }
+  
   }
 }

@@ -28,7 +28,14 @@ export class RecipesService {
 
   likeRecipe(id: string) {
     return this.http.get<IRecipe>(`${apiUrl}/likes/${id}`, {withCredentials: true})
+  }
 
+  editRecipe(data: any, id: string) {
+    return this.http.put<IRecipe>(`${apiUrl}/recipes/${id}`, data, {withCredentials: true} )
+  }
+
+  deleteRecipe(id: string) {
+    return this.http.delete<IRecipe>(`${apiUrl}/recipes/${id}`, {withCredentials: true})
   }
 
 

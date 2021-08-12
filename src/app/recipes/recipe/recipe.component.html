@@ -11,12 +11,13 @@
       <p>Preparation: <span>{{recipe.preparation}}</span></p>
     </div>
     <div class="recipe-image">
-      <div>{{recipe.imageUrl}}</div>
+      <img src={{recipe.imageUrl}}>
+   
     </div>
     <div *ngIf="userId==recipe.userId">
       <div>
-        <button>Edit</button>
-        <button>Delete</button>
+        <button [routerLink]="['/edit/', recipe._id]">Edit</button>
+        <button (click)="deleteRecipe(recipe._id)" >Delete</button>
       </div>
     </div>
     <div *ngIf="userId!=recipe.userId">

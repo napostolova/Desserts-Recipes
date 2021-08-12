@@ -7,13 +7,15 @@ import { SharedModule } from '../shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { RecipeComponent } from './recipe/recipe.component';
 import { MyRecipesComponent } from './my-recipes/my-recipes.component';
+import { EditRecipeComponent } from './edit-recipe/edit-recipe.component';
 
 @NgModule({
   declarations: [
     NewRecipeComponent,
     AllRecipesComponent,
     RecipeComponent,
-    MyRecipesComponent
+    MyRecipesComponent,
+    EditRecipeComponent
   ],
   imports: [
     CommonModule,

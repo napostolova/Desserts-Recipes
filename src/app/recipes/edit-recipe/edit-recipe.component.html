@@ -1,0 +1,71 @@
+<div  *ngIf="!recipe">Loading...</div>
+<div class="edit-recipe" *ngIf="recipe">
+    <div class="eit-header">
+      <span>Edit Recipe</span>
+    </div>
+    <form #form="ngForm" (ngSubmit)="editRecipe(form)">
+      <div class="edit-recipe-title">
+        <label for="recipeTitle">Name<span class="red">*</span></label>
+        <input #titleInput="ngModel" type="text" name="title" id="recipeTitle" [ngModel]="recipe.title" ngModel required minlength="3">
+        <ng-container *ngIf="titleInput.touched">
+          <p *ngIf="titleInput.errors?.required" class="error">
+            Recipe title is required!
+          </p>
+          <p *ngIf="titleInput.errors?.minlength" class="error">
+            Recipe title must be at least 3 characters long.
+          </p>
+        </ng-container>
+      </div>
+      <div class="edit-recipe-products">
+        <section></section>
+        <label for="recipeProducts">Ingredients <span class="red">*</span></label>
+        <textarea #productsInput="ngModel" type="text" name="products" id="recipeProducts"  [ngModel]="recipe.products"  rows="8" class="height"
+          ngModel required minlength="10"></textarea>
+        <ng-container *ngIf="productsInput.touched">
+          <p *ngIf="productsInput.errors?.required" class="error">
+            The field with your recipe's products is required.
+          </p>
+          <p *ngIf="productsInput.errors?.minlength" class="error">
+            Recipe must be at least 10 characters long.
+          </p>
+        </ng-container>
+
+      </div>
+      <div class="edit-recipe-preparation">
+        <section></section>
+        <label for="recipePreparation">Preparation <span class="red">*</span></label>
+        <textarea #preparationInput="ngModel" type="text" name="preparation" id="recipePreparation" [ngModel]="recipe.preparation"  rows="8"
+          class="height" ngModel required minlength="10"></textarea>
+        <ng-container *ngIf="preparationInput.touched">
+          <p *ngIf="preparationInput.errors?.required" class="error">
+            The field with recipe preparation is required.
+          </p>
+          <p *ngIf="preparationInput.errors?.minlength" class="error">
+            Recipe must be at least 10 characters long.
+          </p>
+        </ng-container>
+
+      </div>
+      <div class="edit-recipe-image">
+        <section></section>
+        <label for="recipeImage">Image<span class="red">*</span></label>
+        <input #imageInput="ngModel" type="text" name="imageUrl" id="recipeImage"  [ngModel]="recipe.imageUrl" rows="10" class="height" ngModel
+          required>
+        <ng-container *ngIf="imageInput.touched">
+          <p *ngIf="imageInput.errors?.required" class="error">
+            The recipe image is required.
+          </p>
+        </ng-container>
+
+      </div>
+            <div class="edit-recipe-buttons">
+        <button type="button" routerLink="/recipes" class="cancel">Cancel</button>
+        <button class="public">Edit</button>
+      </div>
+    </form>
+  </div>
+ 
+  <!-- <form> 
+      <h2>Edit Recipe</h2>
+
+  </form> -->

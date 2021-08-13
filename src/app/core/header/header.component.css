@@ -1,36 +1,39 @@
 
 header  {
-    background: rgb(240, 154, 154);
-}
-header section  {
-    display: inline-block;
-    color: white;
-    font-size: 16px;
-    width: 300px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-header ul {
-    padding: 0;
-    display: inline-block;
-    align-items: center;
-    width: 100%;
+    background: rgb(212, 57, 91);
     margin: auto;
 }
-header a {
+
+header section  {
+    margin: 10px;
     display: inline-block;
-    text-decoration: none;
     color: white;
-    cursor: pointer;
-}
-li {
-    display: inline-block;
-    text-decoration: none;
-   padding-right: 10px;
-    color: white;
-    cursor: pointer;
+    font-size: 17px;
+    padding-left: 30px;
+    width: 700px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 nav {
     display: inline-block;
     border-right: 2px ;
+    color: grey;
+    padding: 0;
 }
+.nav-item {
+    text-decoration: none;
+    padding-right: 15px;
+
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    padding-right: 15px;
+}
+ a:hover {
+    display: inline-block;
+    text-decoration: none;
+    color: rgb(0, 105, 217);
+    cursor: pointer;
+}
+

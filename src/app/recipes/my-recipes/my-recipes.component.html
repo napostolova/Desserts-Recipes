@@ -1,10 +1,18 @@
-
+<div class="container">
  <ng-container *ngIf="recipes">
-  <div *ngFor="let recipe of recipes">
-    <div class="recipe" [routerLink]="['/recipes', recipe._id]">
-      <h2>{{recipe.title}}</h2>
-        </div>
-      </div>
+    <div *ngFor="let recipe of recipes">
+   
+  <div class="card" style="width: 18rem;">
+    <img src={{recipe.imageUrl}} class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{recipe.title}}</h5>
+      <p class="card-text">{{recipe.products}}</p>
+      <a [routerLink]="['/recipes', recipe._id]" class="btn btn-primary">Read more</a>
+    </div>
+  </div>
+ </div>
+
+
 </ng-container> 
 
 <ng-container *ngIf="recipes?.length==0">
@@ -15,3 +23,4 @@
   <div class="no-recipes">There is any recipes</div>
   <a routerLink="/create">Add your recipe</a>
   </ng-container> 
+</div>

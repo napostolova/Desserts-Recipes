@@ -1,30 +1,31 @@
 <header>
     <section>Desserts</section>
-    <section>
-        <ul *ngIf="!isLogged">
-            <li>
-                <a routerLink="/home">Home</a>
+    <nav>  
+        <ul class="nav" *ngIf="!isLogged">
+            <li class="nav-item">
+              <a  aria-current="page" routerLink="/home">Home</a>
             </li>
-            <li>
-                <a routerLink="/login">Login</a>
+            <li class="nav-item">
+              <a  routerLink="/login">Login</a>
             </li>
-            <li>
-                <a routerLink="/register">Register</a>
+            <li class="nav-item">
+              <a routerLink="/register">Register</a>
             </li>
-        </ul>
-    </section>
-    <nav>
-        <ul *ngIf="isLogged">
-            <li>
-                <a routerLink="/recipes">Recipes</a>
+          </ul>
+    
+        <ul class="nav" *ngIf="isLogged">
+            <li class="nav-item">
+              <a aria-current="page" routerLink="/recipes">Recipes</a>
             </li>
-            <li>
-                <a routerLink="/create">Create Recipe</a>
+            <li class="nav-item">
+              <a routerLink="/create">Create Recipe</a>
             </li>
-            <li>
-                <a routerLink="/my-recipes">{{username}}'s recipes</a>
+            <li class="nav-item">
+              <a routerLink="/my-recipes">{{username}}'s recipes</a>
             </li>
-            <li (click)="logout()">Log out</li>
+            <li class="nav-item">
+              <a (click)="logout()">Log out</a>
+            </li>
         </ul>
     </nav>
 </header>

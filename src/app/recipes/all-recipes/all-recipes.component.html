@@ -1,24 +1,13 @@
 <div class="container">
-  <div class="recipe-title" *ngIf="recipes">
-    <div *ngFor="let recipe of recipes" class="recipe-container">
-      <div class="recipe-name-wrapper" [routerLink]="['/recipes', recipe._id]">
-        <div class="recipe-name">
-          <a class="normal">
-            <h2>{{recipe.title}}</h2>
-          </a>
-          <div class="columns">
-            <div>
-              <div class="imageUrl">
-                <img src={{recipe.imageUrl}}>
-              </div>
-              <div class="author-name">
-                <p>Ingredients: <span>{{recipe.products}}</span></p>
-              </div>
-            </div>
-          </div>
+  <div class="recipe" *ngIf="recipes">
+       <div *ngFor="let recipe of recipes"  class="row gx-4 gx-lg-5">
+          <div class="card" style="width: 18rem;">
+        <img src={{recipe.imageUrl}} class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{recipe.title}}</h5>
+          <p class="card-text">{{recipe.products}}</p>
+          <a [routerLink]="['/recipes', recipe._id]" class="btn btn-primary">Read more</a>
         </div>
       </div>
     </div>
-  </div>
-  <div *ngIf="!recipes">Loading...</div>
-</div>
+    <div *ngIf="!recipes">Loading...</div>

@@ -1,68 +1,63 @@
-<form> 
+    <div class="container">
     <form [formGroup]="form" class="register" action="" method="post" (ngSubmit)="register()">
-    <h2>Registration Form</h2>
+      <div class="form-group">
+        <label for="exampleInputUsername">Username</label>
+        <input type="text" name="username" class="form-control" id="exampleInputUsername"
+        placeholder="Marie"   formControlName="username">
+        <ng-container *ngIf="form.get('username')?.touched">
+          <p *ngif="form.get('username').errors?.required" class="error">
+            Username is required!
+          </p>
+          <p *ngIf="form.get('username')?.errors?.minlength" class="error">
+            Username should be at least 5 symbols!
+          </p>
+        </ng-container>
+      </div>
 
-    <p class="">
-        <label for="username"><span><i class="username"></i></span></label>
-        <input class="input-error" type="text" name="username" id="username" placeholder="Marie"   formControlName="username">
-      </p>
-      <ng-container *ngIf="form.get('username')?.touched">
-        <p *ngif="form.get('username').errors?.required" class="error">
-          Username is required!
-        </p>
-        <p *ngIf="form.get('username')?.errors?.minlength" class="error">
-          Username should be at least 5 symbols!
-        </p>
-      </ng-container>
+      <div class="form-group">
+        <label for="exampleInputEmail">Email address</label>
+        <input type="email" name="email"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+          placeholder="marie.rose@gmail.com" formControlName="email">
+          <ng-container *ngIf="form.get('email')?.touched">
+            <p *ngIf="form.get('email')?.errors?.required" class="error">
+              Email is required!
+            </p>
+            <p *ngIf="form.get('email')?.errors?.invalidEmail" class="error">
+              Email is invalid!
+            </p>
+          </ng-container>
+      </div>
 
+      
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="*****"  formControlName="password">
+        <ng-container *ngIf="form.get('password')?.touched">
+          <p *ngIf="form.get('password')?.errors?.required" class="error">
+            Password is required!
+          </p>
+          <p *ngIf="form.get('password')?.errors?.minlength" class="error">
+            Password should be at least 5 symbols!
+          </p>
+        </ng-container>
+      </div>
 
-      <p class="">
-        <label for="email"><span><i class="email"></i></span></label>
-        <input type="email" name="email" id="email" placeholder="marie.rose@gmail.com" formControlName="email">
-      </p>
+      <div class="form-group">
+        <label for="exampleInputPassword2">Repeat Password</label>
+        <input type="password"  name="rePassword" class="form-control" id="exampleInputPassword2" placeholder="*****"   formControlName="rePassword">
+        <ng-container *ngIf="form.get('rePassword')?.touched">
+          <p *ngIf="form.get('rePassword')?.errors?.required" class="error">
+            Repeat password is required!
+          </p>
+          <p *ngIf="form.get('rePassword')?.errors?.invalid" class="error">
+            Passwords don't match!
+          </p>
+        </ng-container>
+      </div>
 
-      <ng-container *ngIf="form.get('email')?.touched">
-        <p *ngIf="form.get('email')?.errors?.required" class="error">
-          Email is required!
-        </p>
-        <p *ngIf="form.get('email')?.errors?.invalidEmail" class="error">
-          Email is invalid!
-        </p>
-      </ng-container>
-
-      <p class="">
-        <label for="password"><span><i class="password"></i></span></label>
-        <input type="password" name="password" id="password" placeholder="******"  formControlName="password">
-      </p>
-      <ng-container *ngIf="form.get('password')?.touched">
-        <p *ngIf="form.get('password')?.errors?.required" class="error">
-          Password is required!
-        </p>
-        <p *ngIf="form.get('password')?.errors?.minlength" class="error">
-          Password should be at least 5 symbols!
-        </p>
-      </ng-container>
-
-
-      <p class="">
-        <label for="rePassword"><span><i class="rePass"></i></span></label>
-        <input type="password" name="rePassword" id="rePassword" placeholder="******"  formControlName="rePassword">
-      </p>
-      <ng-container *ngIf="form.get('rePassword')?.touched">
-        <p *ngIf="form.get('rePassword')?.errors?.required" class="error">
-          Repeat password is required!
-        </p>
-        <p *ngIf="form.get('rePassword')?.errors?.invalid" class="error">
-          Passwords don't match!
-        </p>
-        
-      </ng-container>
-
-      <button>Create Account</button>
-
-      <p class="text-center">
-        Have an account?
-        <a routerLink="/login">Log In</a>
-      </p>
+      <button type="submit" class="btn btn-primary">Create Account</button>
+      <div>
+        <small>Already have an account? <a routerLink="/login">Log in</a></small>
+      </div>
 </form>
-
+</div>

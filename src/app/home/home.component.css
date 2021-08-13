@@ -1,0 +1,11 @@
+section {
+    background: url("../../assets/Muffins.jpg");
+    background-size: cover;  
+}
+section h1 {
+    font-size:  60px;
+    color: white; 
+    font-style: italic; 
+    width: 70% ;
+    padding: 200px 0px 450px 350px;
+}

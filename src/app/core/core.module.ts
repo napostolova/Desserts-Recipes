@@ -5,6 +5,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { AuthGardGuard } from './guards/auth-gard.guard';
+import { appInterceptorProvider } from './app-interceptor';
 
 
 @NgModule({
@@ -17,10 +18,13 @@ import { AuthGardGuard } from './guards/auth-gard.guard';
     RouterModule,
     HttpClientModule
   ],
-  providers: [AuthGardGuard ],
-    exports: [
-    HeaderComponent,
-    FooterComponent
-  ]
+  providers: [AuthGardGuard,
+    appInterceptorProvider
+    
+   ],
+   exports: [
+     HeaderComponent,
+     FooterComponent
+   ] 
 })
 export class CoreModule { }

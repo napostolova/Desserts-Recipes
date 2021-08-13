@@ -11,13 +11,15 @@ import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { RecipesModule } from './recipes/recipes.module';
 import { RecipesService } from './recipes.service';
+import { ErrorComponent } from './error/error.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +32,8 @@ import { RecipesService } from './recipes.service';
 
   ],
   providers: [
-    RecipesService    
+    RecipesService,
+     
   ],
   bootstrap: [AppComponent]
 })

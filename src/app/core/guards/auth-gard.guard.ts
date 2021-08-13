@@ -7,27 +7,40 @@ import { UserService } from '../../user/user.service';
 export class AuthGardGuard implements CanActivate {
 
   constructor(
-    private router: Router, 
-    private userService: UserService) {}
+    private router: Router,
+    private userService: UserService) { }
 
   canActivate(
     route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    state: RouterStateSnapshot
+  ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-      const { authenticationRequired, authenticationFailureRedirect } = route.data;
-      
-      if( typeof authenticationRequired === 'boolean' && authenticationRequired === this.userService.isLogged) {
-          return true;
-      }
+    const { authenticationRequired, authenticationFailureRedirect } = route.data;
+
+    if (typeof authenticationRequired === 'boolean' && authenticationRequired === this.userService.isLogged) {
+      return true;
+    }
 
     let authRedirectUrl = authenticationFailureRedirect;
-    if(authenticationRequired) {
-        const loginRedirectUrl = route.url.reduce((acc, s) => `${acc}/${s.path}`,'');
-       authRedirectUrl += `?redirectUrl=${loginRedirectUrl}`;
+    if (authenticationRequired) {
+      let isLogged = localStorage.getItem('user');
+      if (isLogged != null) {
+        return true;
+      } else {
+        const loginRedirectUrl = route.url.reduce((acc, s) => `${acc}/${s.path}`, '');
+        authRedirectUrl += `?redirectUrl=${loginRedirectUrl}`;
+      }
+
     }
- 
+
     return this.router.parseUrl(authRedirectUrl || '/');
   }
-  
+
+
 }
+
+
+
+
+
 

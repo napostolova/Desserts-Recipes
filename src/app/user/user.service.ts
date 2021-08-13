@@ -6,7 +6,6 @@ import { environment } from 'src/environments/environment';
 
 import { IUser } from '../shared/interfaces'
 
-const apiUrl = environment.apiUrl;
 
 @Injectable () 
 export class UserService { 
@@ -14,39 +13,36 @@ export class UserService {
 
     get isLogged(): boolean {
         return !!this.user;
+        
     }
     get userId(): any {
         return this.user?._id;
     }
-
+    
     constructor( 
         private http: HttpClient
         ) {}
 
 
     login(data: {emai:string; password: string}) {
-        return this.http.post<IUser>(`${apiUrl}/login`, data, {withCredentials: true}).pipe(
-            tap((user) => this.user = user)
+        return this.http.post<IUser>(`/api/login`, data).pipe(
+            tap((user) => this.user = user)           
         );
     }
     register(data: {username: string; email: string; password: string}) {
-        return this.http.post<IUser>(`${apiUrl}/register`, data).pipe(
+        return this.http.post<IUser>(`/api/register`, data).pipe(
             tap((user) => this.user = user)
         );
     }
     logout() {
-        return this.http.post<IUser>(`${apiUrl}/logout`, {}, {withCredentials: true}).pipe(
+        return this.http.post<IUser>(`/api/logout`, {}).pipe(
             tap(() => this.user = null)
        );
     } 
     userProfile() {
-        return this.http.get<IUser>(`${apiUrl}/users/profile`, {withCredentials: true}).pipe(
+        return this.http.get<IUser>(`/api/users/profile`).pipe(
             tap((user) => this.user = user)
         )
     }
-    updateProfile(data: {username: string, email: string}) {
-        return this.http.put<IUser>(`${apiUrl}/users/profile`, data, {withCredentials: true}).pipe(
-            tap((user) => this.user = user)
-        )
-    }
+  
 }

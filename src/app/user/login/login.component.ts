@@ -30,7 +30,8 @@ export class LoginComponent  {
        return;
      }
      this.userService.login(this.form.value).subscribe({
-       next: () => {
+       next: (user) => {
+         localStorage.setItem('user', user.username)
         this.router.navigate(['/recipes']);
        },
        error: (err) => {

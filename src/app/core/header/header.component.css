@@ -1,7 +1,10 @@
 
 header  {
     background: rgb(212, 57, 91);
-    margin: auto;
+    margin-top: 0;
+    position: absolute;
+    width: 100%;
+ 
 }
 
 header section  {

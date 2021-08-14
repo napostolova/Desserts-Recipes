@@ -12,7 +12,7 @@ export class AllRecipesComponent {
   get isLogged(): boolean {
     return this.userService.isLogged;
   }
-
+ 
   recipes: IRecipe[] | undefined;
 
   constructor(

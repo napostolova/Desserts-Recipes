@@ -1,0 +1,18 @@
+.container {
+    padding: 50px 0px;
+    max-width: 1300px; 
+    margin: 0;
+
+}
+div .edit-recipe {
+    padding: 100px 100px;
+    max-width: 1300px; 
+
+}
+
+h3 {
+    text-align: center;   
+}
+p.error {
+    color: red;
+}

@@ -1,8 +1,8 @@
 <div class="container"> 
-  <!-- <div class="new-recipe">
+  <div class="new-recipe">
     <div class="new-header">
-      <span>New Recipe</span>
-    </div> -->
+      <h3>New Recipe</h3>
+    </div>
 
     <form #form="ngForm" (ngSubmit)="createRecipe(form)">
       <div class="mb-3">
@@ -61,8 +61,8 @@
       <div class="new-recipe-buttons">
         <button type="submit" class="btn btn-primary">Create</button>
         <button type="button" routerLink="/recipes" class="btn btn-outline-primary">Cancel</button>
-        <!-- <button type="submit" routerLink="/recipes" class="btn btn-primary">Cancel</button> -->
       </div>
     </form>
 
+</div>
 </div>

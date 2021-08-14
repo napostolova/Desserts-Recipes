@@ -1,34 +1,35 @@
 <div class="container">
-  <div></div>
+
   <div *ngIf="recipe" class="recipe">
     <div class="recipe-name">
       <h2>{{recipe.title}}</h2>
     </div>
-    <div class="recipe-products">
-      <p>Ingredients: <span>{{recipe.products}}</span></p>
-    </div>
-    <div class="recipe-preparation">
-      <p>Preparation: <span>{{recipe.preparation}}</span></p>
-    </div>
     <div class="recipe-image">
       <img src={{recipe.imageUrl}}>
-   
     </div>
+    <div class="recipe-products">
+      <h6>Ingredients:</h6>
+    <span>{{recipe.products}}</span>
+    </div>
+    <div class="recipe-preparation">
+      <h6>Preparation:</h6>
+      <p> <span>{{recipe.preparation}}</span></p>
+    </div>
+
     <div *ngIf="userId==recipe.userId">
-      <div>
-        <button [routerLink]="['/edit/', recipe._id]">Edit</button>
-        <button (click)="deleteRecipe(recipe._id)" >Delete</button>
+      <div class="buttons">
+        <button class="edit" [routerLink]="['/edit/', recipe._id]">Edit</button>
+        <button class="delete"  (click)="deleteRecipe(recipe._id)">Delete</button>
       </div>
     </div>
     <div *ngIf="userId!=recipe.userId">
       <div *ngIf="!recipe.likes.includes(userId)">
-        <button (click)="likeRecipe(recipe._id)">Like</button>
-        <span>{{recipe.likes.length}} likes</span>
+        <button class="like" (click)="likeRecipe(recipe._id)">Like</button>
       </div>
       <div *ngIf="recipe.likes.includes(userId)">
-        <p>You have already liked this recipe</p>
-        <span>{{recipe.likes.length}} likes</span>
+        <small>You have already liked this recipe</small>
       </div>
+      <span>{{recipe.likes.length}} likes</span>
     </div>
   </div>
 </div>

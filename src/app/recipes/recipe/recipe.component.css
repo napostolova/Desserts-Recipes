@@ -1,10 +1,54 @@
 .container {
-    max-width: 1300px;
+    padding: 100px 0px;
+    width: 100%; 
+    margin: 0;
 
 }
 
-.recipe-image {
-    width: 200px;
-    height: 200px;
-    display: block;
+div .recipe {
+    margin: auto;
+     padding: auto;
+     width: 500px;
+  
+ }
+ h2 {
+    text-align: center;  
+    color:  rgb(212, 57, 91);
+}
+h6 {
+    font-style: italic;
+}
+
+img {
+    width: 350px;
+    height: 250px;
+}
+
+div .recipe-products {
+    display: inline-block;
+}
+
+.edit {
+    background: green;
+    color: white;
+    margin: 10px;
+    border: none;
+    border-radius: 2px;
+    
+}
+.delete {
+    background: grey;
+    color: white;
+    margin: 10px;
+    border: none;
+    border-radius: 2px;
+    
+}
+
+.like {
+    background: blue;
+    color: white;
+    border: none;
+    border-radius: 2px;
+  
 }

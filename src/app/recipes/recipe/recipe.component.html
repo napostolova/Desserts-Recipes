@@ -18,8 +18,8 @@
 
     <div *ngIf="userId==recipe.userId">
       <div class="buttons">
-        <button class="edit" [routerLink]="['/edit/', recipe._id]">Edit</button>
-        <button class="delete"  (click)="deleteRecipe(recipe._id)">Delete</button>
+        <button [routerLink]="['/edit/', recipe._id]" class="btn btn-primary">Edit</button>
+        <button (click)="deleteRecipe(recipe._id)" class="btn btn-outline-primary">Delete</button>
       </div>
     </div>
     <div *ngIf="userId!=recipe.userId">

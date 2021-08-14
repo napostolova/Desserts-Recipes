@@ -1,3 +1,16 @@
+.container {
+    padding: 50px 0px;
+    max-width: 1300px; 
+    margin: 0;
+
+}
+div .login{
+    padding: 100px 100px;
+    max-width: 1300px; 
+
+}
+
+
 .error {
     color: red;
 }

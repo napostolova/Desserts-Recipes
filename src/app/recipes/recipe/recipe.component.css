@@ -28,22 +28,6 @@ div .recipe-products {
     display: inline-block;
 }
 
-.edit {
-    background: green;
-    color: white;
-    margin: 10px;
-    border: none;
-    border-radius: 2px;
-    
-}
-.delete {
-    background: grey;
-    color: white;
-    margin: 10px;
-    border: none;
-    border-radius: 2px;
-    
-}
 
 .like {
     background: blue;

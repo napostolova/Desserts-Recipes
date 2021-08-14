@@ -1,8 +1,25 @@
+
 div .my-recipes {
     margin: auto;
     padding: 100px 0px;
     width: 500px;
     display: inline-flex;
+}
+
+.card { 
+    width: 300px ;
+    height: 400px;
+    margin: 10px;
+   
+}
+img.card-img-top {
+    width: 285px;
+    height: 200px;
+}
+
+div .card-body {
+    width: 300px;
+    height: 200px;
 }
 
 div .no-recipes {

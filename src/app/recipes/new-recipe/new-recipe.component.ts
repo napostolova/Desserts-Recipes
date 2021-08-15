@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { RecipesService } from '../../recipes.service';
+import { RecipesService } from '../recipes.service';
 
 @Component({
   selector: 'app-new-recipe',

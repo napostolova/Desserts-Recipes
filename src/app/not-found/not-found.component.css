@@ -1,7 +1,16 @@
+
+
 .not-found {
+    padding: 150px;
     color: red;
     text-align: center;
+    
 }
+
+.not-found p {
+    font-size: 32px ;
+}
+
 a {
     color: blue;
 }

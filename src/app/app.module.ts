@@ -10,9 +10,10 @@ import { UserModule } from './user/user.module';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { RecipesModule } from './recipes/recipes.module';
-import { RecipesService } from './recipes.service';
+import { RecipesService } from './recipes/recipes.service';
 import { ErrorComponent } from './error/error.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -29,8 +30,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     SharedModule,
     HttpClientModule,
     RecipesModule,
-    AppRoutingModule,
     NgbModule,
+    AppRoutingModule,
+    NgxPaginationModule
 
   ],
   providers: [

@@ -8,6 +8,8 @@ import { FormsModule } from '@angular/forms';
 import { RecipeComponent } from './recipe/recipe.component';
 import { MyRecipesComponent } from './my-recipes/my-recipes.component';
 import { EditRecipeComponent } from './edit-recipe/edit-recipe.component';
+import {NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { EditRecipeComponent } from './edit-recipe/edit-recipe.component';
     CommonModule,
     SharedModule,
     FormsModule,
-    RecipeRoutingModule
+    NgbModule,
+    RecipeRoutingModule,
+    
   ]
 })
 export class RecipesModule { }

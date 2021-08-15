@@ -17,6 +17,9 @@ div .recipe {
     margin: 20px;
    
 }
+h5 {
+    color:  rgb(212, 57, 91);
+}
 
 img.card-img-top {
     width: 300px;
@@ -26,4 +29,10 @@ img.card-img-top {
 div .card-body {
     width: 300px;
     height: 200px;
+}
+
+ngb-pagination {
+    display: inline-block;
+    margin: 0px 450px;
+ 
 }

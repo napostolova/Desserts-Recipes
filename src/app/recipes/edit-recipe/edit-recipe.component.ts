@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { RecipesService } from 'src/app/recipes.service';
+import { RecipesService } from 'src/app/recipes/recipes.service';
 import { IRecipe } from 'src/app/shared/interfaces';
 
 @Component({

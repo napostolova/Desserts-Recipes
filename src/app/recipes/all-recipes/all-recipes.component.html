@@ -1,7 +1,8 @@
+<div *ngIf="!recipes">Loading...</div>
 <div class="container">
-  <div class="recipe" *ngIf="recipes">
-       <div *ngFor="let recipe of recipes">   <!--class="row gx-4 gx-lg-5"> -->
-         <div class="card">
+  <table class="recipe" *ngIf="recipes">
+    <tr *ngFor="let recipe of recipes | slice: (page-1) * pageSize : page * pageSize">
+      <div class="card">
         <img src={{recipe.imageUrl}} class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">{{recipe.title}}</h5>
@@ -9,5 +10,9 @@
           <a [routerLink]="['/recipes', recipe._id]" class="btn btn-primary">Read more</a>
         </div>
       </div>
-    </div>
-    <div *ngIf="!recipes">Loading...</div>
+    </tr>
+  </table>
+</div>
+
+<ngb-pagination *ngIf="recipes" [(page)]="page" [pageSize]="pageSize" [collectionSize]="recipes.length">
+</ngb-pagination>
